@@ -204,8 +204,11 @@ module.exports = {
                 message += `${emoji} **${escapeMarkdown(player.username)}**: ${eloRecord.eloPre} → ${eloRecord.eloPost} (${sign}${eloRecord.eloChange})\n`;
             }
 
-            const embed = new EmbedBuilder().setColor('#47a166').setTitle(`Match Recorded: ${matchType}`)
+            const embed = new EmbedBuilder()
+                .setColor('#47a166')
+                .setTitle(`Match Recorded: ${matchType}`)
                 .addFields({ name: 'Player Ratings', value: message })
+                .setFooter({ text: 'Brought to you by John Arcana' })
 
 
             await interaction.editReply({ embeds: [embed] });

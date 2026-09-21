@@ -66,7 +66,7 @@ module.exports = {
                     embedColor = "#949494";
                     break
                 default:
-                    leaderboardRankingDisplayed = `${leaderboardRanking}#`;
+                    leaderboardRankingDisplayed = `${leaderboardRanking}th`;
             }
 
             const matches = await player.getMatches({

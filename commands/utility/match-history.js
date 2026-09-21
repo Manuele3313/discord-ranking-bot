@@ -35,7 +35,7 @@ function formatMatchEntry(match, matchNumber) {
 		return `${placement} **${escapeMarkdown(player.username)}**: ${eloBefore} → ${eloAfter} (${eloChange})`;
 	}).join('\n');
 
-	return `## Match ${matchNumber} (${match.matchType}): ${dateString}\n ${playersText}`;
+	return `### Match ${matchNumber} (${match.matchType}): ${dateString}\n ${playersText}`;
 }
 
 function createEmbed(page, totalPages, pages, pageSize) {

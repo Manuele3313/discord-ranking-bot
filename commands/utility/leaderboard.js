@@ -6,7 +6,7 @@ const { Op } = require('sequelize');
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('leaderboard')
-        .setDescription('Display the 10 best players'),
+        .setDescription('Display the 20 best players'),
 
 	async execute(interaction) {
 
@@ -32,7 +32,7 @@ module.exports = {
                             return eloB - eloA;
             });
 
-            const topPlayers = allPlayers.slice(0, 10);
+            const topPlayers = allPlayers.slice(0, 20);
 
             if (topPlayers.length === 0) {
                 return interaction.editReply('The leaderboard is currently empty. Go play some matches!');
@@ -49,7 +49,15 @@ module.exports = {
             let leaderboardText = '';
             for (let i = 0; i < topPlayers.length; i++) {
                 const player = topPlayers[i];
-                leaderboardText += `**${i + 1}.** **${escapeMarkdown(player.username)}**: ${player.currentElo} Elo\n`;
+                if(i === 0){
+                    leaderboardText += `👑  **${escapeMarkdown(player.username)}**: ${player.currentElo} Elo\n`;
+                } else if(i === 1){
+                    leaderboardText += `🥈  **${escapeMarkdown(player.username)}**: ${player.currentElo} Elo\n`;
+                } else if(i === 2){
+                    leaderboardText += `🥉  **${escapeMarkdown(player.username)}**: ${player.currentElo} Elo\n`;
+                } else {
+                    leaderboardText += `**${i + 1}th**  **${escapeMarkdown(player.username)}**: ${player.currentElo} Elo\n`;
+                }
             }
 
             leaderboardEmbed.setDescription(leaderboardText);
