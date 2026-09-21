@@ -46,6 +46,7 @@ latest match for the current server.
 
 Displays a player's profile and statistics.
 
+<img width="439" height="588" alt="image" src="https://github.com/user-attachments/assets/b4054397-8504-47e5-a9fc-7d63bc43b8d0" />
 
 Players need at least ten matches to appear in the leaderboard. A profile can still
 be viewed before that threshold and is marked as unranked.
